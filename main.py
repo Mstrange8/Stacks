@@ -25,8 +25,7 @@ def in2post(expr):
         elif e.isnumeric():
             postfix += e + ' '
         elif e in ['+', '-', '*', '/']:
-            while (my_stack.size() > 0 and my_stack.top() != '(' and
-                   symbol_dict[my_stack.top()] >= symbol_dict[e]):
+            while my_stack.size() > 0 and my_stack.top() != '(' and symbol_dict[my_stack.top()] >= symbol_dict[e]:
                 postfix += my_stack.pop() + ' '
             my_stack.push(e)
         else:
@@ -75,3 +74,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
